@@ -5,6 +5,7 @@ import '../public/styles/globals.css'
 import { evaluateTex } from 'tex-math-parser';
 import RandomNumber from '../components/question/RandomNumber'
 import RandomNumber2 from '../components/question/RandomNumber2';
+import SmallNumber from '../components/question/smallNumber'
 
 export default function App({}){
 
@@ -14,7 +15,10 @@ export default function App({}){
 
     const [randomNumberString, setRandomNumberString] = useState('');
     const [randomNumberString2, setRandomNumberString2] = useState('');
+    const [SmallNumberString, setSmallNumberString] = useState('');
 
+
+    
     // new state to update the state when random number is reciveed as string for num1
      const handleRandomNumberString = (numberString) => {
     setRandomNumberString(numberString);
@@ -24,6 +28,12 @@ export default function App({}){
      const handleRandomNumberString2 = (numberString2) => {
     setRandomNumberString2(numberString2);
     };
+    
+    //for smallNumber
+    const handleRandomNumberSmall = (SmallNumberString) => {
+    setSmallNumberString(SmallNumberString);
+    };
+
 
 
 
@@ -36,11 +46,16 @@ export default function App({}){
     return(
         <div style={{display:'flex', justifyContent:'center'}}>
             <div style={{maxWidth:'800px', width:'calc(100vw - 40px)', marginTop:'50px'}}>
-                {/* taking random number anfd passing the OnRandomString prop (passing a function as a prop) */}
+
+                {/* taking random number and passing the OnRandomString prop (passing a function as a prop) to the parent component */}
+
                       <RandomNumber onRandomNumberString={handleRandomNumberString} />
-                     <StaticMath latex={randomNumberString} />
+                      {/* passing random number string to render it using latex */}
+                     <StaticMath latex= {randomNumberString} />
                       <RandomNumber2 onRandomNumberString={handleRandomNumberString2} />
                      <StaticMath latex={randomNumberString2} />
+                      <SmallNumber onRandomNumberString={handleRandomNumberSmall} />
+                     <StaticMath latex={SmallNumberString} />
                 
                 <StaticMath latex={`\\text{Generate a random question and display it here.}`} />
                 <br/>

@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react';
+import GetRandomNumberInRange from '../helper-functions/getRandomNumberInRange'
+
 
 const RandomNumber2 = ({onRandomNumberString}) => {
   const [num2, setNum2] = useState(0);
@@ -10,21 +12,11 @@ const RandomNumber2 = ({onRandomNumberString}) => {
 
 
   const generateRandomNumber = () => {
-    const newRandomNumber = getRandomNumberInRange(1, 500).toString();
+    const newRandomNumber = GetRandomNumberInRange(1, 900).toString();
     setNum2(newRandomNumber);
     onRandomNumberString(newRandomNumber);
   };
 
-  const getRandomNumberInRange = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
-
-  return (
-    <div>
-     
-    
-    </div>
-  );
 };
 
 export default RandomNumber2;
