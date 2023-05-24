@@ -1,6 +1,6 @@
 import StaticMath from '../components/StaticMath/StaticMath'
 import MathInput from '../components/MathInput/MathInput';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../public/styles/globals.css'
 import { evaluateTex } from 'tex-math-parser';
 import RandomNumber from '../components/question/RandomNumber'
@@ -12,45 +12,76 @@ export default function App({}){
     const [solutionShown, setSolutionShown] = useState(false);
 
 
-    const [randomNumberString, setRandomNumberString] = useState('');
-    const [randomNumberString2, setRandomNumberString2] = useState('');
-    const [SmallNumberString, setSmallNumberString] = useState('');
-    const [SmallNumberString2, setSmallNumberString2] = useState('');
-    const [SmallNumberString3, setSmallNumberString3] = useState('');
-    const [SmallNumberString4, setSmallNumberString4] = useState('');
+    const [FinalAnswer1, setFinalAnswer1] = useState('');
+    const [FinalAnswer2, setFinalAnswer2] = useState('');
+    const [xCoefficient1, setXCoefficient1] = useState('');
+    const [yCoefficient1, setYCoefficient1] = useState('');
+    const [xCoefficient2, setXCoefficient2] = useState('');
+    const [yCoefficient2, setYCoefficient2] = useState('');
 
-
+console.log(parseInt(FinalAnswer1))
     
     // new state to update the state when random number is reciveed as string for num1
      const handleRandomNumberString = (numberString) => {
-    setRandomNumberString(numberString);
+    setFinalAnswer1(numberString);
     };
 
     //for num2
      const handleRandomNumberString2 = (numberString2) => {
-    setRandomNumberString2(numberString2);
+    setFinalAnswer2(numberString2);
     };
     
-    //for smallNumber
-    const handleRandomNumberSmall = (SmallNumberString) => {
-    setSmallNumberString(SmallNumberString);
+    //for smallNumber1
+    const handleRandomNumberSmall = (xCoefficient1) => {
+    setXCoefficient1(xCoefficient1);
     };
 
-        //for smallNumber
-    const handleRandomNumberSmall2 = (SmallNumberString2) => {
-    setSmallNumberString2(SmallNumberString2);
+        //for smallNumber2
+    const handleRandomNumberSmall2 = (yCoefficient1) => {
+    setYCoefficient1(yCoefficient1);
     };
-        //for smallNumber
-    const handleRandomNumberSmall3 = (SmallNumberString3) => {
-    setSmallNumberString3(SmallNumberString3);
+        //for smallNumber3
+    const handleRandomNumberSmall3 = (xCoefficient2) => {
+    setXCoefficient2(xCoefficient2);
     };
-        //for smallNumber
-    const handleRandomNumberSmall4 = (SmallNumberString4) => {
-    setSmallNumberString4(SmallNumberString4);
+        //for smallNumber4
+    const handleRandomNumberSmall4 = (yCoefficient2) => {
+    setYCoefficient2(yCoefficient2);
     };
+
+    // this is where I will attempt to solve the equation
+
+  const [x, setX] = useState('');
+  const [y, setY] = useState('');
+
+useEffect(() => {
+    solveEquations();
+  });
+  
+  const solveEquations = () => {
+    const denominator = parseInt(xCoefficient1) * parseInt(yCoefficient2) - parseInt(yCoefficient1) * parseInt(xCoefficient2);
+
+console.log(xCoefficient1,yCoefficient1, FinalAnswer1, xCoefficient2, yCoefficient2, FinalAnswer2)
 
 
 
+    if (denominator !== 0) {
+      const xResult = (parseInt(yCoefficient2) * parseInt(FinalAnswer1) - parseInt(yCoefficient1) * parseInt(FinalAnswer2)) / denominator;
+      const yResult = (parseInt(xCoefficient1) * parseInt(FinalAnswer2) - parseInt(xCoefficient2) * parseInt(FinalAnswer1)) / denominator;
+
+
+      setX(xResult.toFixed(2));
+      setY(yResult.toFixed(2));
+    } else {
+      setX('No solution');
+      setY('No solution');
+    }
+    console.log(x)
+    console.log(y)
+  }; 
+  
+
+  
 
     function addToMemory(newValue){
         setMemory((prev)=>{
@@ -66,29 +97,29 @@ export default function App({}){
 
                       <RandomNumber onRandomNumberString={handleRandomNumberString} />
                       {/* passing random number string to render it using latex */}
-                     <StaticMath latex= {randomNumberString} />
+                     <StaticMath latex= {FinalAnswer1} />
 
 
                       <RandomNumber onRandomNumberString={handleRandomNumberString2} />
-                     <StaticMath latex={randomNumberString2} />
+                     <StaticMath latex={FinalAnswer2} />
 
 
 
 {/* Making a new number generate for each number needed */}
                       <SmallNumber onRandomNumberString={handleRandomNumberSmall} />
-                     <StaticMath latex={SmallNumberString} />
+                     <StaticMath latex={xCoefficient1} />
                      
 
                     <SmallNumber onRandomNumberString={handleRandomNumberSmall2} />
-                     <StaticMath latex={SmallNumberString2} />
+                     <StaticMath latex={yCoefficient1} />
 
 
                     <SmallNumber onRandomNumberString={handleRandomNumberSmall3} />
-                     <StaticMath latex={SmallNumberString3} />
+                     <StaticMath latex={xCoefficient2} />
 
 
                     <SmallNumber onRandomNumberString={handleRandomNumberSmall4} />
-                     <StaticMath latex={SmallNumberString4} />
+                     <StaticMath latex={yCoefficient2} />
                      
                 
                 <StaticMath latex={`\\text{Generate a random question and display it here.}`} />
