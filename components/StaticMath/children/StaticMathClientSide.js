@@ -4,7 +4,7 @@ import { addStyles } from "react-mathquill";
 // inserts the required css to the <head> block.
 addStyles();
 
-export default function StaticMathClientSide({latex, className, style}){
+export default function StaticMathClientSide({latex, className, style,}){
     let elements = [];
     let i = 0;
     while(latex.substr(i, 1).length > 0){
