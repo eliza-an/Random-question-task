@@ -89,7 +89,8 @@ console.log(xCoefficient1,yCoefficient1, FinalAnswer1, xCoefficient2, yCoefficie
 
   const handleItemsPicked = (first, second) => {
     setFirstItem(first);
-    setSecondItem(second);}
+    setSecondItem(second);
+}
 
     function addToMemory(newValue){
         setMemory((prev)=>{
@@ -102,11 +103,15 @@ console.log(xCoefficient1,yCoefficient1, FinalAnswer1, xCoefficient2, yCoefficie
             <div style={{maxWidth:'800px', width:'calc(100vw - 40px)', marginTop:'50px'}}>
 
                 {/* taking random number and passing the OnRandomString prop (passing a function as a prop) to the parent component */}
+                    {/* Adding the list of groceries to here to try make a sentance */}
 
+                        <FruitSelector ItemsPicked={handleItemsPicked} />
+                        <p>First Item: {firstItem}</p>
+                        <p>Second Item: {secondItem}</p>
                       <RandomNumber onRandomNumberString={handleRandomNumberString} />
                       {/* passing random number string to render it using latex */}
                      <StaticMath latex= {FinalAnswer1} />
-
+    
 
                       <RandomNumber onRandomNumberString={handleRandomNumberString2} />
                      <StaticMath latex={FinalAnswer2} />
