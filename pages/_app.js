@@ -1,10 +1,11 @@
-import StaticMath from '../components/StaticMath/StaticMath'
+import StaticMath from '../components/StaticMath/StaticMath';
 import MathInput from '../components/MathInput/MathInput';
 import { useState, useEffect } from 'react';
-import '../public/styles/globals.css'
+import '../public/styles/globals.css';
 import { evaluateTex } from 'tex-math-parser';
-import RandomNumber from '../components/question/RandomNumber'
-import SmallNumber from '../components/question/smallNumber'
+import RandomNumber from '../components/question/RandomNumber';
+import SmallNumber from '../components/question/smallNumber';
+import FruitSelector from '../components/question/fruit'
 
 export default function App({}){
 
@@ -80,8 +81,15 @@ console.log(xCoefficient1,yCoefficient1, FinalAnswer1, xCoefficient2, yCoefficie
     console.log(y)
   }; 
   
+// This is where I import the first and second
+//I need a new usestate here because this one will be specific to the app component,rather than defined in fruit.js
 
-  
+  const [firstItem, setFirstItem] = useState("");
+  const [secondItem, setSecondItem] = useState("");
+
+  const handleItemsPicked = (first, second) => {
+    setFirstItem(first);
+    setSecondItem(second);}
 
     function addToMemory(newValue){
         setMemory((prev)=>{
@@ -125,7 +133,7 @@ console.log(xCoefficient1,yCoefficient1, FinalAnswer1, xCoefficient2, yCoefficie
                 <StaticMath latex={`\\text{Generate a random question and display it here.}`} />
                 <br/>
                 <br/>
-                {solutionShown ? <StaticMath latex={`\\text{Display the solution here}`} /> : ''}
+                {solutionShown ?<StaticMath latex={`x=${FinalAnswer1}, y=${FinalAnswer2}`} />: ''}
                 <br/>
                 <br/>
                 <MathInput buttons={['power', 'times']} markingFunction={markingFunction} memKey='mathinput1' memory={memory} setMemory={addToMemory} placeholder="Type your answer here!"/>
@@ -140,17 +148,17 @@ console.log(xCoefficient1,yCoefficient1, FinalAnswer1, xCoefficient2, yCoefficie
     );
 }
 
-function markingFunction(userInput){
-    let inputValue;
-    try{
-        //the evaluateTex function takes a latex string as an input and returns the evaluation as a javascript number
-        inputValue = evaluateTex(userInput).evaluated;
-    }catch{
-        return 0;
+    function markingFunction(userInput){
+        let inputValue;
+        try{
+            //the evaluateTex function takes a latex string as an input and returns the evaluation as a javascript number
+            inputValue = evaluateTex(userInput).evaluated;
+        }catch{
+            return 0;
+        }
+        if(inputValue === 5){
+            return 1
+        }else{
+            return 0;
+        }
     }
-    if(inputValue === 5){
-        return 1
-    }else{
-        return 0;
-    }
-}
