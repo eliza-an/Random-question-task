@@ -5,7 +5,7 @@ const FruitSelector = ({ItemsPicked}) => {
   const [firstItem, setFirstItem] = useState("");
   const [secondItem, setSecondItem] = useState("");
 
-  const selectItems = () => {
+  const SelectItems = () => {
     const IndexRandom = Math.floor(Math.random() * FoodSelection.length);
     const first = FoodSelection[IndexRandom];
     let second = "";
@@ -28,7 +28,7 @@ const FruitSelector = ({ItemsPicked}) => {
 
 },[]) };
 
-selectItems()
+SelectItems()
 return null
 };
 
