@@ -19,17 +19,18 @@ const FruitSelector = ({ItemsPicked}) => {
 
 
 
-  //passing these as a prop  
- ItemsPicked(firstItem,secondItem)
- 
- useEffect(()=>{
-    setFirstItem(first);
-    setSecondItem(second);
+      //passing these as a prop  
+    ItemsPicked(firstItem,secondItem)
 
-},[]) };
+    useEffect(()=>{
+        setFirstItem(first);
+        setSecondItem(second);
 
-SelectItems()
-return null
+    },[]) 
+  };
+
+  SelectItems()
+  return null
 };
 
 export default FruitSelector;

@@ -4,8 +4,8 @@ import GetRandomNumberInRange from '../helper-functions/getRandomNumberInRange'
 const SmallNumber= ({onRandomNumberString}) => {
   const [smallNumber, setSmallNumber] = useState(0);
 
-    useEffect(() => {
-    generateRandomNumber();
+  useEffect(() => {
+  generateRandomNumber();
   }, []);
 
 

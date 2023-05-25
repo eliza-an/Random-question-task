@@ -4,9 +4,9 @@ import GetRandomNumberInRange from '../helper-functions/getRandomNumberInRange'
 const RandomNumber = ({onRandomNumberString}) => {
   const [num1, setNum1] = useState(0);
 
-    useEffect(() => {
-    generateRandomNumber();
-  }, []);
+  useEffect(() => {
+  generateRandomNumber();
+  } , []);
 
 
 
@@ -17,5 +17,6 @@ const RandomNumber = ({onRandomNumberString}) => {
   };
 
 };
-
 export default RandomNumber;
+
+
