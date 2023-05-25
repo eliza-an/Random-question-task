@@ -106,40 +106,42 @@ console.log(xCoefficient1,yCoefficient1, FinalAnswer1, xCoefficient2, yCoefficie
                     {/* Adding the list of groceries to here to try make a sentance */}
 
                         <FruitSelector ItemsPicked={handleItemsPicked} />
-                        <p>First Item: {firstItem}</p>
-                        <p>Second Item: {secondItem}</p>
+                       
                       <RandomNumber onRandomNumberString={handleRandomNumberString} />
                       {/* passing random number string to render it using latex */}
-                     <StaticMath latex= {FinalAnswer1} />
+                    
     
 
                       <RandomNumber onRandomNumberString={handleRandomNumberString2} />
-                     <StaticMath latex={FinalAnswer2} />
+                   
 
 
 
 {/* Making a new number generate for each number needed */}
                       <SmallNumber onRandomNumberString={handleRandomNumberSmall} />
-                     <StaticMath latex={xCoefficient1} />
+                   
                      
 
                     <SmallNumber onRandomNumberString={handleRandomNumberSmall2} />
-                     <StaticMath latex={yCoefficient1} />
+                    
 
 
                     <SmallNumber onRandomNumberString={handleRandomNumberSmall3} />
-                     <StaticMath latex={xCoefficient2} />
+                  
 
 
                     <SmallNumber onRandomNumberString={handleRandomNumberSmall4} />
-                     <StaticMath latex={yCoefficient2} />
+                    
                      
-                
+                <StaticMath latex={`\\textbf{Please Answer the following question to 2 decimal places. }`} />
+                <br></br>
                 <StaticMath latex={`\\text{${xCoefficient1} kg of ${firstItem} and ${yCoefficient1} kg of ${secondItem} cost ${FinalAnswer1}p }`} />
                 <StaticMath latex={`\\text{${xCoefficient2} kg of ${firstItem} and ${yCoefficient2} kg of ${secondItem} cost ${FinalAnswer2}p }`} />
+                <br></br>
+                <StaticMath latex={`\\textbf{What is the cost of 1 kg of ${firstItem} and 1 kg of ${secondItem} }`} />
                 <br/>
                 <br/>
-                {solutionShown ?<StaticMath latex={`\\text{${firstItem} = ${FinalAnswer1}p/kg, ${secondItem}=${FinalAnswer2}/kg  Final Answer=}`} />: ''}
+                {solutionShown ?<StaticMath latex={`\\text{${firstItem} = ${x}p/kg, ${secondItem}=${y}/kg  Final Answer=}`} />: ''}
                 <br/>
                 <br/>
                 <MathInput buttons={['power', 'times']} markingFunction={markingFunction} memKey='mathinput1' memory={memory} setMemory={addToMemory} placeholder="Type your answer here!"/>
