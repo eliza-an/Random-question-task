@@ -139,8 +139,6 @@ export default function App({}){
             </div>
         </div>
     );
-}
-
     function markingFunction(userInput){
         let inputValue;
         try{
@@ -149,9 +147,12 @@ export default function App({}){
         }catch{
             return 0;
         }
-        if(inputValue === 5){
+        if(parseFloat(inputValue) == parseFloat(FinalXandY)){
             return 1
         }else{
             return 0;
         }
     }
+}
+
+
