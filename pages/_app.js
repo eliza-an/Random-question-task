@@ -69,10 +69,11 @@ export default function App({}){
     if (denominator !== 0) {
       const xResult = (parseInt(yCoefficient2) * parseInt(FinalAnswer1) - parseInt(yCoefficient1) * parseInt(FinalAnswer2)) / denominator;
       const yResult = (parseInt(xCoefficient1) * parseInt(FinalAnswer2) - parseInt(xCoefficient2) * parseInt(FinalAnswer1)) / denominator;
-
+         
 
         setX(xResult.toFixed(2));
         setY(yResult.toFixed(2));
+    
         } else {
         setX('No solution');
         setY('No solution');
@@ -80,6 +81,8 @@ export default function App({}){
         console.log(x)
         console.log(y)
     }; 
+    
+    const FinalXandY = (parseFloat(x) + parseFloat(y)).toFixed(2);
   
     // This is where I import the first and second
     //I need a new usestate here because this one will be specific to the app component,rather than defined in fruit.js
@@ -123,7 +126,7 @@ export default function App({}){
                     <StaticMath latex={`\\textbf{What is the cost of 1 kg of ${firstItem} and 1 kg of ${secondItem} }`} />
                     <br/>
                     <br/>
-                    {solutionShown ?<StaticMath latex={`\\text{${firstItem} = ${x}p/kg, ${secondItem}=${y}/kg  Final Answer=}`} />: ''}
+                    {solutionShown ?<StaticMath latex={`\\text{${firstItem} = ${x}p/kg, ${secondItem}=${y}/kg  Final Answer= ${FinalXandY}}`} />: ''}
                     <br/>
                     <br/>
                     <MathInput buttons={['power', 'times']} markingFunction={markingFunction} memKey='mathinput1' memory={memory} setMemory={addToMemory} placeholder="Type your answer here!"/>
