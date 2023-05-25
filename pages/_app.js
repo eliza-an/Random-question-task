@@ -135,10 +135,11 @@ console.log(xCoefficient1,yCoefficient1, FinalAnswer1, xCoefficient2, yCoefficie
                      <StaticMath latex={yCoefficient2} />
                      
                 
-                <StaticMath latex={`\\text{Generate a random question and display it here.}`} />
+                <StaticMath latex={`\\text{${xCoefficient1} kg of ${firstItem} and ${yCoefficient1} kg of ${secondItem} cost ${FinalAnswer1}p }`} />
+                <StaticMath latex={`\\text{${xCoefficient2} kg of ${firstItem} and ${yCoefficient2} kg of ${secondItem} cost ${FinalAnswer2}p }`} />
                 <br/>
                 <br/>
-                {solutionShown ?<StaticMath latex={`x=${FinalAnswer1}, y=${FinalAnswer2}`} />: ''}
+                {solutionShown ?<StaticMath latex={`\\text{${firstItem} = ${FinalAnswer1}p/kg, ${secondItem}=${FinalAnswer2}/kg  Final Answer=}`} />: ''}
                 <br/>
                 <br/>
                 <MathInput buttons={['power', 'times']} markingFunction={markingFunction} memKey='mathinput1' memory={memory} setMemory={addToMemory} placeholder="Type your answer here!"/>
