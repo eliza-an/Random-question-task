@@ -6,7 +6,7 @@ const RandomNumber = ({onRandomNumberString}) => {
 
     useEffect(() => {
     generateRandomNumber();
-  }, []);
+  },);
 
 
 

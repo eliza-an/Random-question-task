@@ -110,35 +110,27 @@ console.log(xCoefficient1,yCoefficient1, FinalAnswer1, xCoefficient2, yCoefficie
                         <p>Second Item: {secondItem}</p>
                       <RandomNumber onRandomNumberString={handleRandomNumberString} />
                       {/* passing random number string to render it using latex */}
-                     <StaticMath latex= {FinalAnswer1} />
-    
 
                       <RandomNumber onRandomNumberString={handleRandomNumberString2} />
-                     <StaticMath latex={FinalAnswer2} />
-
-
-
+             
 {/* Making a new number generate for each number needed */}
                       <SmallNumber onRandomNumberString={handleRandomNumberSmall} />
-                     <StaticMath latex={xCoefficient1} />
-                     
-
+     
                     <SmallNumber onRandomNumberString={handleRandomNumberSmall2} />
-                     <StaticMath latex={yCoefficient1} />
-
-
+                    
                     <SmallNumber onRandomNumberString={handleRandomNumberSmall3} />
-                     <StaticMath latex={xCoefficient2} />
-
-
+                    
                     <SmallNumber onRandomNumberString={handleRandomNumberSmall4} />
-                     <StaticMath latex={yCoefficient2} />
+                   
                      
                 
-                <StaticMath latex={`\\text{Generate a random question and display it here.}`} />
+                <StaticMath latex={`\\text{${xCoefficient1}  kg of ${firstItem} and ${yCoefficient1} kg of ${secondItem} cost ${FinalAnswer1}`} />
+
+
                 <br/>
                 <br/>
-                {solutionShown ?<StaticMath latex={`x=${FinalAnswer1}, y=${FinalAnswer2}`} />: ''}
+                {/* wrong for now, just wanted to make sure it displayed! */}
+                {solutionShown ?<StaticMath latex={`${firstItem}=${FinalAnswer1}, ${secondItem}=${FinalAnswer2}`} />: ''}
                 <br/>
                 <br/>
                 <MathInput buttons={['power', 'times']} markingFunction={markingFunction} memKey='mathinput1' memory={memory} setMemory={addToMemory} placeholder="Type your answer here!"/>

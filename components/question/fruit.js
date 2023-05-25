@@ -5,7 +5,7 @@ const FruitSelector = ({ItemsPicked}) => {
   const [firstItem, setFirstItem] = useState("");
   const [secondItem, setSecondItem] = useState("");
 
-  const selectItems = () => {
+
     const IndexRandom = Math.floor(Math.random() * FoodSelection.length);
     const first = FoodSelection[IndexRandom];
     let second = "";
@@ -21,15 +21,15 @@ const FruitSelector = ({ItemsPicked}) => {
 
   //passing these as a prop  
  ItemsPicked(firstItem,secondItem)
+
  
- useEffect(()=>{
     setFirstItem(first);
     setSecondItem(second);
 
-},[]) };
 
-selectItems()
-return null
-};
 
+
+
+
+  }
 export default FruitSelector;
