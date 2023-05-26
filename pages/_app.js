@@ -70,7 +70,7 @@ export default function App({}){
     const xResult = (parseInt(yCoefficient2) * parseInt(FinalAnswer1) - parseInt(yCoefficient1) * parseInt(FinalAnswer2)) / denominator;
     const yResult = (parseInt(xCoefficient1) * parseInt(FinalAnswer2) - parseInt(xCoefficient2) * parseInt(FinalAnswer1)) / denominator;
 
-        if (xResult < 1.5 || yResult < 1.5 || isNaN(xResult) || isNaN(yResult) || denominator===0) {
+        if (xResult < 1.5 || yResult < 1.5 || isNaN(xResult) || isNaN(yResult) || denominator===0 || ((xCoefficient1===xCoefficient2) &&(yCoefficient1===yCoefficient2))) {
         regenerateNumbers();
         } else {
         setX(xResult.toFixed(2));
