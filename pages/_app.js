@@ -92,8 +92,8 @@ const regenerateNumbers = () => {
   const regeneratedYCoefficient1 = Math.floor(Math.random() * 8) + 1;
   const regeneratedXCoefficient2 = Math.floor(Math.random() * 8) + 1;
   const regeneratedYCoefficient2 = Math.floor(Math.random() * 8) + 1;
-  const regeneratedFinalAnswer1 = Math.floor(Math.random() * 30) + 5;
-  const regeneratedFinalAnswer2 = Math.floor(Math.random() * 30) + 5;
+  const regeneratedFinalAnswer1 = Math.floor(Math.random() * 40) + 10;
+  const regeneratedFinalAnswer2 = Math.floor(Math.random() * 40) + 10;
 
   setXCoefficient1(regeneratedXCoefficient1.toString());
   setYCoefficient1(regeneratedYCoefficient1.toString());
