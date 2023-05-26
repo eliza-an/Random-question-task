@@ -142,7 +142,7 @@ const regenerateNumbers = () => {
                     <SmallNumber onRandomNumberString={handleRandomNumberSmall4} />
                     
                      
-                    <StaticMath latex={`\\textbf{Please Answer the following question to 2 decimal places. }`} />
+                    <StaticMath latex={`\\textbf{Please answer the following question to 2 decimal places. }`} />
                     <br></br>
                     <StaticMath latex={`\\text{${xCoefficient1} kg of ${firstItem} and ${yCoefficient1} kg of ${secondItem} cost ${FinalAnswer1}p }`} />
                     <StaticMath latex={`\\text{${xCoefficient2} kg of ${firstItem} and ${yCoefficient2} kg of ${secondItem} cost ${FinalAnswer2}p }`} />

@@ -4,14 +4,14 @@ import GetRandomNumberInRange from '../helper-functions/getRandomNumberInRange'
 const SmallNumber= ({onRandomNumberString}) => {
   const [smallNumber, setSmallNumber] = useState(0);
 
-  useEffect(() => {
-  generateRandomNumber();
-  }, []);
+    useEffect(() => {
+    generateRandomNumber();
+    }, []);
 
 
 
   const generateRandomNumber = () => {
-    const newRandomNumber = GetRandomNumberInRange(1, 20).toString();
+    const newRandomNumber = GetRandomNumberInRange(1, 10).toString();
     setSmallNumber(newRandomNumber);
     onRandomNumberString(newRandomNumber);
   };
