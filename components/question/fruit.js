@@ -5,32 +5,28 @@ const FruitSelector = ({ItemsPicked}) => {
   const [firstItem, setFirstItem] = useState("");
   const [secondItem, setSecondItem] = useState("");
 
-  const SelectItems = () => {
-    const IndexRandom = Math.floor(Math.random() * FoodSelection.length);
-    const first = FoodSelection[IndexRandom];
-    let second = "";
+ useEffect(() => {
+    const SelectItems = () => {
+      const IndexRandom = Math.floor(Math.random() * FoodSelection.length);
+      const first = FoodSelection[IndexRandom];
+      let second = "";
 
-    // This sections makes sure that both items are different each time
-    if (FoodSelection.length > 1) {
-      FoodSelection.splice(IndexRandom, 1); //taking away the firs titem
-      const secondIndex = Math.floor(Math.random() * (FoodSelection.length));
-      second = FoodSelection[secondIndex];
-    }
+      // This section ensures that both items are different each time
+      if (FoodSelection.length > 1) {
+        FoodSelection.splice(IndexRandom, 1); // Taking away the first item
+        const secondIndex = Math.floor(Math.random() * FoodSelection.length);
+        second = FoodSelection[secondIndex];
+      }
 
+      setFirstItem(first);
+      setSecondItem(second);
+      ItemsPicked(first, second);
+    };
 
+    SelectItems();
+  }, []);
 
-      //passing these as a prop  
-    ItemsPicked(firstItem,secondItem)
-
-    useEffect(()=>{
-        setFirstItem(first);
-        setSecondItem(second);
-
-    },[]) 
-  };
-
-  SelectItems()
-  return null
+  return null;
 };
 
 export default FruitSelector;

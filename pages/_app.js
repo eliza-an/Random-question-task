@@ -20,7 +20,7 @@ export default function App({}){
     const [xCoefficient2, setXCoefficient2] = useState('');
     const [yCoefficient2, setYCoefficient2] = useState('');
 
-    console.log(parseInt(FinalAnswer1))
+
     
     // new state to update the state when random number is reciveed as string for num1
     const handleRandomNumberString = (numberString) => {
@@ -57,31 +57,58 @@ export default function App({}){
 
     useEffect(() => {
         solveEquations();
-    });
+    },[FinalAnswer1, FinalAnswer2, xCoefficient1, yCoefficient1, xCoefficient2, yCoefficient2]);
+
   
   const solveEquations = () => {
     const denominator = parseInt(xCoefficient1) * parseInt(yCoefficient2) - parseInt(yCoefficient1) * parseInt(xCoefficient2);
 
-    console.log(xCoefficient1,yCoefficient1, FinalAnswer1, xCoefficient2, yCoefficient2, FinalAnswer2)
 
 
 
-    if (denominator !== 0) {
-      const xResult = (parseInt(yCoefficient2) * parseInt(FinalAnswer1) - parseInt(yCoefficient1) * parseInt(FinalAnswer2)) / denominator;
-      const yResult = (parseInt(xCoefficient1) * parseInt(FinalAnswer2) - parseInt(xCoefficient2) * parseInt(FinalAnswer1)) / denominator;
-         
+  if (denominator !== 0) {
+    const xResult = (parseInt(yCoefficient2) * parseInt(FinalAnswer1) - parseInt(yCoefficient1) * parseInt(FinalAnswer2)) / denominator;
+    const yResult = (parseInt(xCoefficient1) * parseInt(FinalAnswer2) - parseInt(xCoefficient2) * parseInt(FinalAnswer1)) / denominator;
 
-        setX(xResult.toFixed(2));
-        setY(yResult.toFixed(2));
-    
-        } else {
-        setX('No solution');
-        setY('No solution');
-        }
-        console.log(x)
-        console.log(y)
-    }; 
-    
+    if (xResult < 1.5 || yResult < 1.5 || isNaN(xResult) || isNaN(yResult)) {
+      regenerateNumbers();
+    } else {
+      setX(xResult.toFixed(2));
+      setY(yResult.toFixed(2));
+    }
+  } else {
+    setX('No solution');
+    setY('No solution');
+  }
+};
+
+const regenerateNumbers = () => {
+  setFinalAnswer1('');
+  setFinalAnswer2('');
+  setXCoefficient1('');
+  setYCoefficient1('');
+  setXCoefficient2('');
+  setYCoefficient2('');
+  
+  // Regenerate the numbers for coefficients and final answers
+  const regeneratedXCoefficient1 = Math.floor(Math.random() * 10) + 1;
+  const regeneratedYCoefficient1 = Math.floor(Math.random() * 10) + 1;
+  const regeneratedXCoefficient2 = Math.floor(Math.random() * 10) + 1;
+  const regeneratedYCoefficient2 = Math.floor(Math.random() * 10) + 1;
+  const regeneratedFinalAnswer1 = Math.floor(Math.random() * 90) + 10;
+  const regeneratedFinalAnswer2 = Math.floor(Math.random() * 90) + 10;
+
+  setXCoefficient1(regeneratedXCoefficient1.toString());
+  setYCoefficient1(regeneratedYCoefficient1.toString());
+  setXCoefficient2(regeneratedXCoefficient2.toString());
+  setYCoefficient2(regeneratedYCoefficient2.toString());
+  setFinalAnswer1(regeneratedFinalAnswer1.toString());
+  setFinalAnswer2(regeneratedFinalAnswer2.toString());
+
+  setX('');
+  setY('');
+};
+ 
     const FinalXandY = (parseFloat(x) + parseFloat(y)).toFixed(2);
   
     // This is where I import the first and second
@@ -152,7 +179,7 @@ export default function App({}){
         }else{
             return 0;
         }
-    }
+    } 
 }
 
 
