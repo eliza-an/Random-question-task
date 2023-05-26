@@ -70,7 +70,7 @@ export default function App({}){
     const xResult = (parseInt(yCoefficient2) * parseInt(FinalAnswer1) - parseInt(yCoefficient1) * parseInt(FinalAnswer2)) / denominator;
     const yResult = (parseInt(xCoefficient1) * parseInt(FinalAnswer2) - parseInt(xCoefficient2) * parseInt(FinalAnswer1)) / denominator;
 
-        if (xResult < 1.5 || yResult < 1.5 || isNaN(xResult) || isNaN(yResult) || denominator===0 || ((xCoefficient1===xCoefficient2) &&(yCoefficient1===yCoefficient2))) {
+        if (xResult < 1.5 || yResult < 1.5 || isNaN(xResult) || isNaN(yResult) || denominator===0 || ((xCoefficient1===xCoefficient2)&&(yCoefficient1===yCoefficient2))) {
         regenerateNumbers();
         } else {
         setX(xResult.toFixed(2));
@@ -88,12 +88,12 @@ const regenerateNumbers = () => {
   setYCoefficient2('');
   
   // Regenerate the numbers for coefficients and final answers8
-  const regeneratedXCoefficient1 = Math.floor(Math.random() * 8) + 1;
-  const regeneratedYCoefficient1 = Math.floor(Math.random() * 8) + 1;
-  const regeneratedXCoefficient2 = Math.floor(Math.random() * 8) + 1;
-  const regeneratedYCoefficient2 = Math.floor(Math.random() * 8) + 1;
-  const regeneratedFinalAnswer1 = Math.floor(Math.random() * 40) + 10;
-  const regeneratedFinalAnswer2 = Math.floor(Math.random() * 40) + 10;
+  const regeneratedXCoefficient1 = Math.floor(Math.random() * 9) + 1;
+  const regeneratedYCoefficient1 = Math.floor(Math.random() * 9) + 1;
+  const regeneratedXCoefficient2 = Math.floor(Math.random() * 9) + 1;
+  const regeneratedYCoefficient2 = Math.floor(Math.random() * 9) + 1;
+  const regeneratedFinalAnswer1 = Math.floor(Math.random() * 50) + 10;
+  const regeneratedFinalAnswer2 = Math.floor(Math.random() * 50) + 10;
 
   setXCoefficient1(regeneratedXCoefficient1.toString());
   setYCoefficient1(regeneratedYCoefficient1.toString());

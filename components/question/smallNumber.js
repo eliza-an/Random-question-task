@@ -11,7 +11,7 @@ const SmallNumber= ({onRandomNumberString}) => {
 
 
   const generateRandomNumber = () => {
-    const newRandomNumber = GetRandomNumberInRange(1, 8).toString();
+    const newRandomNumber = GetRandomNumberInRange(1, 9).toString();
     setSmallNumber(newRandomNumber);
     onRandomNumberString(newRandomNumber);
   };
