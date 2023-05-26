@@ -87,13 +87,13 @@ const regenerateNumbers = () => {
   setXCoefficient2('');
   setYCoefficient2('');
   
-  // Regenerate the numbers for coefficients and final answers
-  const regeneratedXCoefficient1 = Math.floor(Math.random() * 20) + 1;
-  const regeneratedYCoefficient1 = Math.floor(Math.random() * 20) + 1;
-  const regeneratedXCoefficient2 = Math.floor(Math.random() * 20) + 1;
-  const regeneratedYCoefficient2 = Math.floor(Math.random() * 20) + 1;
-  const regeneratedFinalAnswer1 = Math.floor(Math.random() * 1500) + 80;
-  const regeneratedFinalAnswer2 = Math.floor(Math.random() * 1500) + 80;
+  // Regenerate the numbers for coefficients and final answers8
+  const regeneratedXCoefficient1 = Math.floor(Math.random() * 8) + 1;
+  const regeneratedYCoefficient1 = Math.floor(Math.random() * 8) + 1;
+  const regeneratedXCoefficient2 = Math.floor(Math.random() * 8) + 1;
+  const regeneratedYCoefficient2 = Math.floor(Math.random() * 8) + 1;
+  const regeneratedFinalAnswer1 = Math.floor(Math.random() * 30) + 5;
+  const regeneratedFinalAnswer2 = Math.floor(Math.random() * 30) + 5;
 
   setXCoefficient1(regeneratedXCoefficient1.toString());
   setYCoefficient1(regeneratedYCoefficient1.toString());
@@ -144,13 +144,13 @@ const regenerateNumbers = () => {
                      
                     <StaticMath latex={`\\textbf{Please answer the following question to 2 decimal places. }`} />
                     <br></br>
-                    <StaticMath latex={`\\text{${xCoefficient1} kg of ${firstItem} and ${yCoefficient1} kg of ${secondItem} cost ${FinalAnswer1}p }`} />
-                    <StaticMath latex={`\\text{${xCoefficient2} kg of ${firstItem} and ${yCoefficient2} kg of ${secondItem} cost ${FinalAnswer2}p }`} />
+                    <StaticMath latex={`\\text{${xCoefficient1} kg of ${firstItem} and ${yCoefficient1} kg of ${secondItem} cost £${FinalAnswer1} }`} />
+                    <StaticMath latex={`\\text{${xCoefficient2} kg of ${firstItem} and ${yCoefficient2} kg of ${secondItem} cost £${FinalAnswer2} }`} />
                     <br></br>
                     <StaticMath latex={`\\textbf{What is the cost of 1 kg of ${firstItem} and 1 kg of ${secondItem} }`} />
                     <br/>
                     <br/>
-                    {solutionShown ?<StaticMath latex={`\\text{${firstItem} = ${x}p/kg, ${secondItem}=${y}p/kg  Final Answer= ${FinalXandY}p}`} />: ''}
+                    {solutionShown ?<StaticMath latex={`\\text{${firstItem} = £${x}/kg, ${secondItem}=£${y}/kg  Final Answer= £${FinalXandY}}`} />: ''}
                     <br/>
                     <br/>
                     <MathInput buttons={['power', 'times']} markingFunction={markingFunction} memKey='mathinput1' memory={memory} setMemory={addToMemory} placeholder="Type your answer here!"/>
