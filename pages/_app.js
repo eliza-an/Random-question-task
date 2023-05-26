@@ -70,16 +70,13 @@ export default function App({}){
     const xResult = (parseInt(yCoefficient2) * parseInt(FinalAnswer1) - parseInt(yCoefficient1) * parseInt(FinalAnswer2)) / denominator;
     const yResult = (parseInt(xCoefficient1) * parseInt(FinalAnswer2) - parseInt(xCoefficient2) * parseInt(FinalAnswer1)) / denominator;
 
-    if (xResult < 1.5 || yResult < 1.5 || isNaN(xResult) || isNaN(yResult)) {
-      regenerateNumbers();
-    } else {
-      setX(xResult.toFixed(2));
-      setY(yResult.toFixed(2));
-    }
-  } else {
-    setX('No solution');
-    setY('No solution');
-  }
+        if (xResult < 1.5 || yResult < 1.5 || isNaN(xResult) || isNaN(yResult) || denominator===0) {
+        regenerateNumbers();
+        } else {
+        setX(xResult.toFixed(2));
+        setY(yResult.toFixed(2));
+      }
+    } 
 };
 
 const regenerateNumbers = () => {
@@ -91,12 +88,12 @@ const regenerateNumbers = () => {
   setYCoefficient2('');
   
   // Regenerate the numbers for coefficients and final answers
-  const regeneratedXCoefficient1 = Math.floor(Math.random() * 10) + 1;
-  const regeneratedYCoefficient1 = Math.floor(Math.random() * 10) + 1;
-  const regeneratedXCoefficient2 = Math.floor(Math.random() * 10) + 1;
-  const regeneratedYCoefficient2 = Math.floor(Math.random() * 10) + 1;
-  const regeneratedFinalAnswer1 = Math.floor(Math.random() * 90) + 10;
-  const regeneratedFinalAnswer2 = Math.floor(Math.random() * 90) + 10;
+  const regeneratedXCoefficient1 = Math.floor(Math.random() * 20) + 1;
+  const regeneratedYCoefficient1 = Math.floor(Math.random() * 20) + 1;
+  const regeneratedXCoefficient2 = Math.floor(Math.random() * 20) + 1;
+  const regeneratedYCoefficient2 = Math.floor(Math.random() * 20) + 1;
+  const regeneratedFinalAnswer1 = Math.floor(Math.random() * 1500) + 80;
+  const regeneratedFinalAnswer2 = Math.floor(Math.random() * 1500) + 80;
 
   setXCoefficient1(regeneratedXCoefficient1.toString());
   setYCoefficient1(regeneratedYCoefficient1.toString());
@@ -153,7 +150,7 @@ const regenerateNumbers = () => {
                     <StaticMath latex={`\\textbf{What is the cost of 1 kg of ${firstItem} and 1 kg of ${secondItem} }`} />
                     <br/>
                     <br/>
-                    {solutionShown ?<StaticMath latex={`\\text{${firstItem} = ${x}p/kg, ${secondItem}=${y}/kg  Final Answer= ${FinalXandY}}`} />: ''}
+                    {solutionShown ?<StaticMath latex={`\\text{${firstItem} = ${x}p/kg, ${secondItem}=${y}p/kg  Final Answer= ${FinalXandY}p}`} />: ''}
                     <br/>
                     <br/>
                     <MathInput buttons={['power', 'times']} markingFunction={markingFunction} memKey='mathinput1' memory={memory} setMemory={addToMemory} placeholder="Type your answer here!"/>
